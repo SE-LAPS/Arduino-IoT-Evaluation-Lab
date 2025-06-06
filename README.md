@@ -244,4 +244,4 @@ If you encounter issues:
 
 **Happy Coding!** 🚀
 
-*Built with ❤️ for Arduino IoT learning*
+*Built with [Lahiru Senavirathna](https://bit.ly/Lahiru_Senavirathna)❤️ for Arduino IoT learning*
