@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Lab Circuit Diagrams</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        h2 {
+            color: #34495e;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        .circuit-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+        
+        .pin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .pin-table th {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .pin-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .pin-table tr:hover {
+            background: #f1f2f6;
+        }
+        
+        .warning {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+        
+        .note {
+            background: linear-gradient(45deg, #ffeaa7, #fdcb6e);
+            color: #2d3436;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+        
+        .circuit-svg {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>IoT Lab Circuit Diagrams</h1>
+        <p style="text-align: center; font-size: 1.2em; color: #7f8c8d;">Arduino Uno R3 - Sensor Monitoring & Actuator Control</p>
+
+        <h2>Circuit 1: HC-SR04 Ultrasonic Sensor</h2>
+        <div class="circuit-container">
+            <svg class="circuit-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- Arduino Uno -->
+                <rect x="50" y="150" width="200" height="120" fill="#2c5aa0" stroke="#1e3a8a" stroke-width="2" rx="5"/>
+                <text x="150" y="175" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Arduino Uno R3</text>
+                
+                <!-- Arduino pins -->
+                <circle cx="70" cy="200" r="4" fill="#ffd700"/>
+                <text x="85" y="205" fill="white" font-size="10">5V</text>
+                <circle cx="70" cy="220" r="4" fill="#000"/>
+                <text x="85" y="225" fill="white" font-size="10">GND</text>
+                <circle cx="70" cy="240" r="4" fill="#00ff00"/>
+                <text x="85" y="245" fill="white" font-size="10">D7</text>
+                <circle cx="230" cy="200" r="4" fill="#ff6600"/>
+                <text x="210" y="205" fill="white" font-size="10">D6</text>
+                
+                <!-- HC-SR04 Sensor -->
+                <rect x="450" y="100" width="250" height="80" fill="#2ecc71" stroke="#27ae60" stroke-width="2" rx="5"/>
+                <text x="575" y="125" text-anchor="middle" fill="white" font-size="16" font-weight="bold">HC-SR04</text>
+                <text x="475" y="145" fill="white" font-size="12">Ultrasonic Sensor</text>
+                
+                <!-- Sensor pins -->
+                <circle cx="470" cy="160" r="4" fill="#ffd700"/>
+                <text x="485" y="175" fill="white" font-size="10">VCC</text>
+                <circle cx="520" cy="160" r="4" fill="#ff6600"/>
+                <text x="535" y="175" fill="white" font-size="10">Trig</text>
+                <circle cx="570" cy="160" r="4" fill="#00ff00"/>
+                <text x="585" y="175" fill="white" font-size="10">Echo</text>
+                <circle cx="620" cy="160" r="4" fill="#000"/>
+                <text x="635" y="175" fill="white" font-size="10">GND</text>
+                
+                <!-- Wires -->
+                <line x1="70" y1="200" x2="470" y2="160" stroke="#ffd700" stroke-width="3"/>
+                <line x1="70" y1="220" x2="620" y2="160" stroke="#000" stroke-width="3"/>
+                <line x1="70" y1="240" x2="520" y2="160" stroke="#00ff00" stroke-width="3"/>
+                <line x1="230" y1="200" x2="570" y2="160" stroke="#ff6600" stroke-width="3"/>
+                
+                <!-- Labels -->
+                <text x="200" y="120" fill="#2c3e50" font-size="12">5V Power</text>
+                <text x="200" y="295" fill="#2c3e50" font-size="12">Ground</text>
+                <text x="200" y="265" fill="#2c3e50" font-size="12">Trigger (D7)</text>
+                <text x="350" y="120" fill="#2c3e50" font-size="12">Echo (D6)</text>
+            </svg>
+            
+            <table class="pin-table">
+                <tr>
+                    <th>Component Pin</th>
+                    <th>Arduino Pin</th>
+                    <th>Wire Color</th>
+                    <th>Function</th>
+                </tr>
+                <tr>
+                    <td>HC-SR04 VCC</td>
+                    <td>5V</td>
+                    <td>Red/Yellow</td>
+                    <td>Power Supply</td>
+                </tr>
+                <tr>
+                    <td>HC-SR04 GND</td>
+                    <td>GND</td>
+                    <td>Black</td>
+                    <td>Ground</td>
+                </tr>
+                <tr>
+                    <td>HC-SR04 Trig</td>
+                    <td>D7</td>
+                    <td>Green</td>
+                    <td>Trigger Signal</td>
+                </tr>
+                <tr>
+                    <td>HC-SR04 Echo</td>
+                    <td>D6</td>
+                    <td>Orange</td>
+                    <td>Echo Response</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Circuit 2: DHT22 Temperature & Humidity Sensor</h2>
+        <div class="circuit-container">
+            <svg class="circuit-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- Arduino Uno -->
+                <rect x="50" y="150" width="200" height="120" fill="#2c5aa0" stroke="#1e3a8a" stroke-width="2" rx="5"/>
+                <text x="150" y="175" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Arduino Uno R3</text>
+                
+                <!-- Arduino pins -->
+                <circle cx="70" cy="200" r="4" fill="#ffd700"/>
+                <text x="85" y="205" fill="white" font-size="10">5V</text>
+                <circle cx="70" cy="220" r="4" fill="#000"/>
+                <text x="85" y="225" fill="white" font-size="10">GND</text>
+                <circle cx="70" cy="240" r="4" fill="#ff6600"/>
+                <text x="85" y="245" fill="white" font-size="10">D2</text>
+                
+                <!-- DHT22 Sensor -->
+                <rect x="450" y="120" width="200" height="100" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="5"/>
+                <text x="550" y="145" text-anchor="middle" fill="white" font-size="16" font-weight="bold">DHT22</text>
+                <text x="480" y="165" fill="white" font-size="12">Temp & Humidity</text>
+                
+                <!-- Sensor pins -->
+                <circle cx="470" cy="190" r="4" fill="#ffd700"/>
+                <text x="485" y="205" fill="white" font-size="10">VCC</text>
+                <circle cx="520" cy="190" r="4" fill="#ff6600"/>
+                <text x="535" y="205" fill="white" font-size="10">Data</text>
+                <circle cx="580" cy="190" r="4" fill="#ccc"/>
+                <text x="595" y="205" fill="white" font-size="10">NC</text>
+                <circle cx="620" cy="190" r="4" fill="#000"/>
+                <text x="635" y="205" fill="white" font-size="10">GND</text>
+                
+                <!-- Pull-up resistor -->
+                <rect x="400" y="90" width="30" height="60" fill="#8b4513" stroke="#654321" stroke-width="1" rx="3"/>
+                <text x="415" y="85" text-anchor="middle" fill="#2c3e50" font-size="10">10kΩ</text>
+                
+                <!-- Wires -->
+                <line x1="70" y1="200" x2="470" y2="190" stroke="#ffd700" stroke-width="3"/>
+                <line x1="70" y1="220" x2="620" y2="190" stroke="#000" stroke-width="3"/>
+                <line x1="70" y1="240" x2="520" y2="190" stroke="#ff6600" stroke-width="3"/>
+                
+                <!-- Pull-up resistor connections -->
+                <line x1="415" y1="90" x2="415" y2="50" stroke="#ffd700" stroke-width="2"/>
+                <line x1="350" y1="50" x2="470" y2="50" stroke="#ffd700" stroke-width="2"/>
+                <line x1="350" y1="50" x2="350" y2="120" stroke="#ffd700" stroke-width="2"/>
+                <line x1="350" y1="120" x2="70" y2="120" stroke="#ffd700" stroke-width="2"/>
+                <line x1="70" y1="120" x2="70" y2="200" stroke="#ffd700" stroke-width="2"/>
+                <line x1="415" y1="150" x2="415" y2="250" stroke="#ff6600" stroke-width="2"/>
+                <line x1="415" y1="250" x2="520" y2="250" stroke="#ff6600" stroke-width="2"/>
+                <line x1="520" y1="250" x2="520" y2="190" stroke="#ff6600" stroke-width="2"/>
+                
+                <!-- Labels -->
+                <text x="200" y="110" fill="#2c3e50" font-size="12">5V to Pull-up</text>
+                <text x="200" y="300" fill="#2c3e50" font-size="12">Ground</text>
+                <text x="200" y="280" fill="#2c3e50" font-size="12">Data (D2)</text>
+            </svg>
+            
+            <table class="pin-table">
+                <tr>
+                    <th>Component Pin</th>
+                    <th>Arduino Pin</th>
+                    <th>Wire Color</th>
+                    <th>Function</th>
+                </tr>
+                <tr>
+                    <td>DHT22 VCC</td>
+                    <td>5V</td>
+                    <td>Red/Yellow</td>
+                    <td>Power Supply</td>
+                </tr>
+                <tr>
+                    <td>DHT22 Data</td>
+                    <td>D2</td>
+                    <td>Orange</td>
+                    <td>Data Communication</td>
+                </tr>
+                <tr>
+                    <td>DHT22 NC</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>Not Connected</td>
+                </tr>
+                <tr>
+                    <td>DHT22 GND</td>
+                    <td>GND</td>
+                    <td>Black</td>
+                    <td>Ground</td>
+                </tr>
+            </table>
+            
+            <div class="note">
+                <strong>Important:</strong> The 10kΩ pull-up resistor between Data pin and 5V is essential for proper DHT22 operation. Some DHT22 breakout boards have this resistor built-in.
+            </div>
+        </div>
+
+        <h2>Circuit 3: LED and 5V Motor Control</h2>
+        <div class="circuit-container">
+            <svg class="circuit-svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                <!-- Arduino Uno -->
+                <rect x="50" y="200" width="200" height="120" fill="#2c5aa0" stroke="#1e3a8a" stroke-width="2" rx="5"/>
+                <text x="150" y="225" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Arduino Uno R3</text>
+                
+                <!-- Arduino pins -->
+                <circle cx="70" cy="250" r="4" fill="#ffd700"/>
+                <text x="85" y="255" fill="white" font-size="10">5V</text>
+                <circle cx="70" cy="270" r="4" fill="#000"/>
+                <text x="85" y="275" fill="white" font-size="10">GND</text>
+                <circle cx="70" cy="290" r="4" fill="#00ff00"/>
+                <text x="85" y="295" fill="white" font-size="10">D9</text>
+                <circle cx="230" cy="250" r="4" fill="#9966ff"/>
+                <text x="210" y="255" fill="white" font-size="10">D3</text>
+                
+                <!-- LED Circuit -->
+                <circle cx="400" cy="150" r="15" fill="#ffff00" stroke="#ffa500" stroke-width="3"/>
+                <text x="400" y="125" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">LED</text>
+                
+                <!-- LED Resistor -->
+                <rect x="320" y="140" width="50" height="20" fill="#8b4513" stroke="#654321" stroke-width="1" rx="3"/>
+                <text x="345" y="135" text-anchor="middle" fill="#2c3e50" font-size="10">220Ω</text>
+                
+                <!-- Motor -->
+                <circle cx="500" cy="350" r="40" fill="#34495e" stroke="#2c3e50" stroke-width="3"/>
+                <text x="500" y="355" text-anchor="middle" fill="white" font-size="12" font-weight="bold">5V Motor</text>
+                <text x="500" y="370" text-anchor="middle" fill="white" font-size="10">+ Fan</text>
+                
+                <!-- Transistor (NPN) for motor control -->
+                <polygon points="580,320 580,380 620,350" fill="#666" stroke="#333" stroke-width="2"/>
+                <text x="600" y="310" text-anchor="middle" fill="#2c3e50" font-size="10">NPN</text>
+                <text x="600" y="400" text-anchor="middle" fill="#2c3e50" font-size="10">Transistor</text>
+                
+                <!-- Flyback Diode -->
+                <polygon points="540,300 560,300 550,320" fill="#000"/>
+                <line x1="540" y1="320" x2="560" y2="320" stroke="#000" stroke-width="2"/>
+                <text x="550" y="290" text-anchor="middle" fill="#2c3e50" font-size="10">Diode</text>
+                
+                <!-- Wires -->
+                <!-- LED Circuit -->
+                <line x1="70" y1="290" x2="320" y2="150" stroke="#00ff00" stroke-width="3"/>
+                <line x1="370" y1="150" x2="385" y2="150" stroke="#00ff00" stroke-width="2"/>
+                <line x1="415" y1="150" x2="450" y2="150" stroke="#000" stroke-width="2"/>
+                <line x1="450" y1="150" x2="450" y2="270" stroke="#000" stroke-width="2"/>
+                <line x1="450" y1="270" x2="70" y2="270" stroke="#000" stroke-width="2"/>
+                
+                <!-- Motor Circuit -->
+                <line x1="70" y1="250" x2="500" y2="250" stroke="#ffd700" stroke-width="3"/>
+                <line x1="500" y1="250" x2="500" y2="310" stroke="#ffd700" stroke-width="3"/>
+                <line x1="500" y1="390" x2="580" y2="380" stroke="#000" stroke-width="3"/>
+                <line x1="620" y1="380" x2="650" y2="380" stroke="#000" stroke-width="2"/>
+                <line x1="650" y1="380" x2="650" y2="420" stroke="#000" stroke-width="2"/>
+                <line x1="650" y1="420" x2="70" y2="420" stroke="#000" stroke-width="2"/>
+                <line x1="70" y1="420" x2="70" y2="270" stroke="#000" stroke-width="2"/>
+                
+                <!-- Transistor base connection -->
+                <line x1="230" y1="250" x2="580" y2="350" stroke="#9966ff" stroke-width="3"/>
+                
+                <!-- Flyback diode connections -->
+                <line x1="540" y1="300" x2="500" y2="300" stroke="#000" stroke-width="2"/>
+                <line x1="560" y1="320" x2="580" y2="320" stroke="#000" stroke-width="2"/>
+                
+                <!-- Labels -->
+                <text x="250" y="120" fill="#2c3e50" font-size="12">LED Control (D9)</text>
+                <text x="350" y="300" fill="#2c3e50" font-size="12">Motor Control (D3)</text>
+                <text x="300" y="450" fill="#2c3e50" font-size="12">Ground Connection</text>
+            </svg>
+            
+            <table class="pin-table">
+                <tr>
+                    <th>Component</th>
+                    <th>Connection</th>
+                    <th>Arduino Pin</th>
+                    <th>Notes</th>
+                </tr>
+                <tr>
+                    <td>LED Anode</td>
+                    <td>Through 220Ω resistor</td>
+                    <td>D9</td>
+                    <td>Current limiting resistor required</td>
+                </tr>
+                <tr>
+                    <td>LED Cathode</td>
+                    <td>Direct</td>
+                    <td>GND</td>
+                    <td>Ground connection</td>
+                </tr>
+                <tr>
+                    <td>Motor +</td>
+                    <td>Through transistor</td>
+                    <td>5V</td>
+                    <td>Switched by transistor</td>
+                </tr>
+                <tr>
+                    <td>Motor -</td>
+                    <td>Transistor emitter</td>
+                    <td>GND</td>
+                    <td>Through transistor to ground</td>
+                </tr>
+                <tr>
+                    <td>Transistor Base</td>
+                    <td>Direct</td>
+                    <td>D3</td>
+                    <td>Motor control signal</td>
+                </tr>
+            </table>
+            
+            <div class="warning">
+                <strong>Safety Warning:</strong> Never connect a motor directly to Arduino digital pins! Use a transistor or MOSFET driver circuit as shown above with a flyback diode to protect against voltage spikes.
+            </div>
+        </div>
+
+        <h2>Circuit 4: Complete Combined System</h2>
+        <div class="circuit-container">
+            <svg class="circuit-svg" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+                <!-- Arduino Uno -->
+                <rect x="100" y="300" width="200" height="150" fill="#2c5aa0" stroke="#1e3a8a" stroke-width="2" rx="5"/>
+                <text x="200" y="325" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Arduino Uno R3</text>
+                
+                <!-- Arduino pins -->
+                <circle cx="120" cy="350" r="4" fill="#ffd700"/>
+                <text x="135" y="355" fill="white" font-size="10">5V</text>
+                <circle cx="120" cy="370" r="4" fill="#000"/>
+                <text x="135" y="375" fill="white" font-size="10">GND</text>
+                <circle cx="120" cy="390" r="4" fill="#ff6600"/>
+                <text x="135" y="395" fill="white" font-size="10">D2</text>
+                <circle cx="120" cy="410" r="4" fill="#9966ff"/>
+                <text x="135" y="415" fill="white" font-size="10">D3</text>
+                <circle cx="280" cy="350" r="4" fill="#00ffff"/>
+                <text x="260" y="355" fill="white" font-size="10">D6</text>
+                <circle cx="280" cy="370" r="4" fill="#00ff00"/>
+                <text x="260" y="375" fill="white" font-size="10">D7</text>
+                <circle cx="280" cy="390" r="4" fill="#ffff00"/>
+                <text x="260" y="395" fill="white" font-size="10">D9</text>
+                
+                <!-- HC-SR04 Sensor -->
+                <rect x="450" y="150" width="200" height="80" fill="#2ecc71" stroke="#27ae60" stroke-width="2" rx="5"/>
+                <text x="550" y="175" text-anchor="middle" fill="white" font-size="14" font-weight="bold">HC-SR04</text>
+                <circle cx="470" cy="210" r="3" fill="#ffd700"/>
+                <circle cx="510" cy="210" r="3" fill="#00ff00"/>
+                <circle cx="550" cy="210" r="3" fill="#00ffff"/>
+                <circle cx="590" cy="210" r="3" fill="#000"/>
+                <text x="470" y="225" text-anchor="middle" fill="#2c3e50" font-size="8">5V</text>
+                <text x="510" y="225" text-anchor="middle" fill="#2c3e50" font-size="8">Trig</text>
+                <text x="550" y="225" text-anchor="middle" fill="#2c3e50" font-size="8">Echo</text>
+                <text x="590" y="225" text-anchor="middle" fill="#2c3e50" font-size="8">GND</text>
+                
+                <!-- DHT22 Sensor -->
+                <rect x="700" y="200" width="150" height="80" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="5"/>
+                <text x="775" y="225" text-anchor="middle" fill="white" font-size="14" font-weight="bold">DHT22</text>
+                <circle cx="720" cy="260" r="3" fill="#ffd700"/>
+                <circle cx="750" cy="260" r="3" fill="#ff6600"/>
+                <circle cx="780" cy="260" r="3" fill="#ccc"/>
+                <circle cx="810" cy="260" r="3" fill="#000"/>
+                <text x="720" y="275" text-anchor="middle" fill="#2c3e50" font-size="8">5V</text>
+                <text x="750" y="275" text-anchor="middle" fill="#2c3e50" font-size="8">Data</text>
+                <text x="780" y="275" text-anchor="middle" fill="#2c3e50" font-size="8">NC</text>
+                <text x="810" y="275" text-anchor="middle" fill="#2c3e50" font-size="8">GND</text>
+                
+                <!-- Pull-up resistor for DHT22 -->
+                <rect x="650" y="150" width="20" height="40" fill="#8b4513" stroke="#654321" stroke-width="1" rx="2"/>
+                <text x="660" y="140" text-anchor="middle" fill="#2c3e50" font-size="8">10kΩ</text>
+                
+                <!-- LED Circuit -->
+                <circle cx="450" y="450" r="12" fill="#ffff00" stroke="#ffa500" stroke-width="2"/>
+                <rect x="380" y="440" width="40" height="15" fill="#8b4513" stroke="#654321" stroke-width="1" rx="2"/>
+                <text x="400" y="435" text-anchor="middle" fill="#2c3e50" font-size="8">220Ω</text>
+                
+                <!-- Motor with Transistor -->
+                <circle cx="600" y="550" r="30" fill="#34495e" stroke="#2c3e50" stroke-width="2"/>
+                <text x="600" y="555" text-anchor="middle" fill="white" font-size="10">Motor</text>
+                <polygon points="680,520 680,580 720,550" fill="#666" stroke="#333" stroke-width="2"/>
+                <text x="700" y="510" text-anchor="middle" fill="#2c3e50" font-size="8">NPN</text>
+                
+                <!-- Flyback Diode -->
+                <polygon points="630,500 650,500 640,520" fill="#000"/>
+                <line x1="630" y1="520" x2="650" y2="520" stroke="#000" stroke-width="2"/>
+                
+                <!-- Wiring connections -->
+                <!-- Power lines (5V) -->
+                <line x1="120" y1="350" x2="470" y2="210" stroke="#ffd700" stroke-width="2"/>
+                <line x1="470" y1="210" x2="720" y2="260" stroke="#ffd700" stroke-width="2"/>
+                <line x1="720" y1="260" x2="600" y2="260" stroke="#ffd700" stroke-width="2"/>
+                <line x1="600" y1="260" x2="600" y2="520" stroke="#ffd700" stroke-width="2"/>
+                
+                <!-- Ground lines -->
+                <line x1="120" y1="370" x2="590" y2="210" stroke="#000" stroke-width="2"/>
+                <line x1="590" y1="210" x2="810" y2="260" stroke="#000" stroke-width="2"/>
+                <line x1="810" y1="260" x2="720" y2="580" stroke="#000" stroke-width="2"/>
+                <line x1="720" y1="580" x2="470" y2="450" stroke="#000" stroke-width="2"/>
+                <line x1="470" y1="450" x2="120" y2="370" stroke="#000" stroke-width="2"/>
+                
+                <!-- Signal lines -->
+                <line x1="120" y1="390" x2="750" y2="260" stroke="#ff6600" stroke-width="2"/>
+                <line x1="280" y1="370" x2="510" y2="210" stroke="#00ff00" stroke-width="2"/>
+                <line x1="280" y1="350" x2="550" y
